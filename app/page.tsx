@@ -1,65 +1,125 @@
-import Image from "next/image";
-
-export default function Home() {
+// app/page.tsx - 메인 대시보드
+export default function Dashboard() {
   return (
-    <div className="flex min-h-screen items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex min-h-screen w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.tsx file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
-          </p>
+    <div className="min-h-screen bg-gray-50 p-4">
+      {/* 📊 헤더 */}
+      <header className="bg-white rounded-lg shadow-sm p-6 mb-6">
+        <h1 className="text-2xl font-bold text-gray-900">🎯 투자 포트폴리오 관리자</h1>
+        <p className="text-gray-600">수칙을 지키면 수익은 따라옵니다</p>
+      </header>
+
+      <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
+        
+        {/* 💰 좌측: 자산 입력 & 기본 정보 */}
+        <div className="lg:col-span-1 space-y-6">
+          {/* 자산 입력 카드 */}
+          <div className="bg-white rounded-lg shadow-sm p-6">
+            <h2 className="text-lg font-semibold mb-4">💰 총 자산 입력</h2>
+            <div className="space-y-4">
+              <input
+                type="number"
+                placeholder="예: 100,000,000"
+                className="w-full p-3 border border-gray-300 rounded-lg text-xl text-right"
+              />
+              <button className="w-full bg-blue-600 text-white py-3 rounded-lg hover:bg-blue-700">
+                계산하기
+              </button>
+            </div>
+          </div>
+
+          {/* 📈 요약 카드 */}
+          <div className="bg-white rounded-lg shadow-sm p-6">
+            <h2 className="text-lg font-semibold mb-4">📊 투자 요약</h2>
+            <div className="space-y-3">
+              <div className="flex justify-between">
+                <span className="text-gray-600">총 투자 가능금</span>
+                <span className="font-semibold">50,000,000원</span>
+              </div>
+              <div className="flex justify-between">
+                <span className="text-gray-600">종목당 투자금</span>
+                <span className="font-semibold">1,250,000원</span>
+              </div>
+              <div className="flex justify-between">
+                <span className="text-gray-600">손절 라인</span>
+                <span className="font-semibold text-red-600">-100,000원</span>
+              </div>
+            </div>
+          </div>
         </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
+
+        {/* 📊 중앙: 포트폴리오 & 위험도 */}
+        <div className="lg:col-span-2 space-y-6">
+          {/* 🎯 포지션 계산기 */}
+          <div className="bg-white rounded-lg shadow-sm p-6">
+            <h2 className="text-lg font-semibold mb-4">🎯 포지션 계산기</h2>
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+              <div className="text-center p-4 bg-blue-50 rounded-lg">
+                <div className="text-2xl font-bold text-blue-600">1.25%</div>
+                <div className="text-sm text-gray-600">최소 포지션</div>
+                <div className="font-semibold">1,250,000원</div>
+              </div>
+              <div className="text-center p-4 bg-green-50 rounded-lg border-2 border-green-200">
+                <div className="text-2xl font-bold text-green-600">2.25%</div>
+                <div className="text-sm text-gray-600">최적 포지션</div>
+                <div className="font-semibold">2,250,000원</div>
+              </div>
+              <div className="text-center p-4 bg-yellow-50 rounded-lg">
+                <div className="text-2xl font-bold text-yellow-600">2.5%</div>
+                <div className="text-sm text-gray-600">최대 포지션</div>
+                <div className="font-semibold">2,500,000원</div>
+              </div>
+            </div>
+          </div>
+
+          {/* ⚠️ 위험도 모니터링 */}
+          <div className="bg-white rounded-lg shadow-sm p-6">
+            <h2 className="text-lg font-semibold mb-4">⚠️ 위험도 모니터링</h2>
+            <div className="space-y-4">
+              <div>
+                <div className="flex justify-between mb-2">
+                  <span>포트폴리오 위험도</span>
+                  <span className="text-green-600">22% (안전)</span>
+                </div>
+                <div className="w-full bg-gray-200 rounded-full h-3">
+                  <div className="bg-green-500 h-3 rounded-full" style={{width: '22%'}}></div>
+                </div>
+              </div>
+              <div className="grid grid-cols-2 gap-4 text-sm">
+                <div className="text-center p-3 bg-red-50 rounded-lg">
+                  <div className="font-semibold text-red-600">🚨 위험 경계</div>
+                  <div>5% 이상</div>
+                </div>
+                <div className="text-center p-3 bg-green-50 rounded-lg">
+                  <div className="font-semibold text-green-600">✅ 안전 영역</div>
+                  <div>5% 이하</div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* 📋 포트폴리오 현황 */}
+          <div className="bg-white rounded-lg shadow-sm p-6">
+            <h2 className="text-lg font-semibold mb-4">📋 현재 포트폴리오</h2>
+            <div className="space-y-3">
+              {['삼성전자', 'SK하이닉스', '네이버'].map((stock, index) => (
+                <div key={index} className="flex justify-between items-center p-3 border border-gray-200 rounded-lg">
+                  <div>
+                    <div className="font-semibold">{stock}</div>
+                    <div className="text-sm text-gray-600">2.1% 포지션</div>
+                  </div>
+                  <div className="text-right">
+                    <div className="font-semibold">+2.3%</div>
+                    <div className="text-sm text-green-600">62,000원</div>
+                  </div>
+                </div>
+              ))}
+              <button className="w-full py-2 border-2 border-dashed border-gray-300 rounded-lg text-gray-500 hover:border-gray-400">
+                + 종목 추가하기
+              </button>
+            </div>
+          </div>
         </div>
-      </main>
+      </div>
     </div>
   );
 }
