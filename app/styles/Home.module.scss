@@ -1,0 +1,285 @@
+.container {
+  min-height: 100vh;
+  background: linear-gradient(to bottom right, #f8fafc, #eff6ff);
+  padding: 1rem;
+
+  .wrapper {
+    max-width: 64rem;
+    margin: 0 auto;
+  }
+}
+
+.header {
+  text-align: center;
+  margin-bottom: 3rem;
+  padding-top: 2rem;
+
+  h1 {
+    font-size: 2.25rem;
+    font-weight: 700;
+    color: #111827;
+    margin-bottom: 1rem;
+  }
+
+  p {
+    font-size: 1.125rem;
+    color: #4b5563;
+    max-width: 42rem;
+    margin: 0 auto;
+  }
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2rem;
+
+  @media (min-width: 1024px) {
+    grid-template-columns: 1fr 2fr;
+  }
+}
+
+.card {
+  background: white;
+  border-radius: 1rem;
+  border: 1px solid #e5e7eb;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+  padding: 1rem;
+
+  .cardHeader {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    margin-bottom: 1rem;
+
+    h2 {
+      font-size: 1.25rem;
+      font-weight: 600;
+      color: #111827;
+    }
+  }
+}
+
+.inputGroup {
+  margin-top: 1rem;
+  
+  label {
+    display: block;
+    font-size: 0.875rem;
+    font-weight: 500;
+    color: #374151;
+    margin-bottom: 0.5rem;
+  }
+
+  input {
+    width: 100%;
+    padding: 0.75rem 1rem;
+    border: 1px solid #d1d5db;
+    border-radius: 0.75rem;
+    font-size: 1.125rem;
+    font-weight: 600;
+    text-align: right;
+
+    &:focus {
+      outline: none;
+      ring: 2px solid #3b82f6;
+      border-color: transparent;
+    }
+  }
+}
+
+.quickButtons {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 0.5rem;
+  margin-top: 1rem;
+
+  button {
+    padding: 0.5rem 0.75rem;
+    font-size: 0.875rem;
+    border: 1px solid #d1d5db;
+    border-radius: 0.5rem;
+    transition: background-color 0.2s;
+
+    &:hover {
+      background-color: #f9fafb;
+    }
+  }
+}
+
+.ruleList {
+  font-size: 0.875rem;
+  
+  .ruleItem {
+    display: flex;
+    justify-content: space-between;
+    padding: 0.5rem 0;
+    border-bottom: 1px solid #f3f4f6;
+
+    &:last-child {
+      border-bottom: none;
+    }
+
+    span:first-child {
+      color: #4b5563;
+    }
+
+    span:last-child {
+      font-weight: 600;
+
+      &.danger {
+        color: #dc2626;
+      }
+    }
+  }
+}
+
+.positionGrid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1rem;
+
+  @media (min-width: 768px) {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.positionCard {
+  padding: 1.5rem;
+  border-radius: 0.75rem;
+  border-width: 2px;
+  text-align: center;
+
+  &.blue {
+    background-color: #eff6ff;
+    border-color: #bfdbfe;
+    .percent { color: #2563eb; }
+  }
+
+  &.green {
+    background-color: #f0fdf4;
+    border-color: #bbf7d0;
+    .percent { color: #16a34a; }
+  }
+
+  &.orange {
+    background-color: #fff7ed;
+    border-color: #fed7aa;
+    .percent { color: #ea580c; }
+  }
+
+  .percent {
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+  }
+
+  .label {
+    font-size: 0.875rem;
+    color: #4b5563;
+    margin-bottom: 0.75rem;
+  }
+
+  .value {
+    font-size: 1.125rem;
+    font-weight: 600;
+    color: #111827;
+  }
+}
+
+.riskMonitor {
+  .progress {
+    width: 100%;
+    height: 0.75rem;
+    background-color: #e5e7eb;
+    border-radius: 9999px;
+    margin: 0.75rem 0;
+
+    .bar {
+      height: 100%;
+      border-radius: 9999px;
+      background: linear-gradient(to right, #22c55e, #eab308);
+      transition: width 0.5s ease;
+    }
+  }
+}
+
+.statusGrid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem;
+
+  .status {
+    text-align: center;
+    padding: 1rem;
+    border-radius: 0.75rem;
+    border: 1px solid;
+
+    &.safe {
+      background-color: #f0fdf4;
+      border-color: #bbf7d0;
+      .label { color: #16a34a; }
+    }
+
+    &.danger {
+      background-color: #fef2f2;
+      border-color: #fecaca;
+      .label { color: #dc2626; }
+    }
+
+    .label {
+      font-weight: 600;
+    }
+
+    .value {
+      font-size: 0.875rem;
+      color: #4b5563;
+      margin-top: 0.25rem;
+    }
+  }
+}
+
+.portfolioStats {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+  text-align: center;
+  font-size: 0.875rem;
+  color: #4b5563;
+
+  .stat {
+    padding: 0.75rem;
+    background-color: #f9fafb;
+    border-radius: 0.5rem;
+
+    .label {
+      font-weight: 600;
+      color: #111827;
+    }
+  }
+}
+
+.emptyState {
+  text-align: center;
+  padding: 3rem 0;
+  border: 2px dashed #d1d5db;
+  border-radius: 0.75rem;
+  margin: 1rem 0;
+
+  .message {
+    color: #9ca3af;
+    margin-bottom: 0.5rem;
+  }
+
+  button {
+    padding: 0.5rem 1rem;
+    background-color: #2563eb;
+    color: white;
+    border-radius: 0.5rem;
+    transition: background-color 0.2s;
+
+    &:hover {
+      background-color: #1d4ed8;
+    }
+  }
+}

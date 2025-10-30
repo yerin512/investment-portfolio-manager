@@ -3,6 +3,7 @@
 
 import { useState } from 'react';
 import { Calculator, TrendingUp, AlertTriangle, PieChart } from 'lucide-react';
+import styles from './styles/Home.module.scss';
 
 export default function Home() {
   const [totalAssets, setTotalAssets] = useState<number>(100000000);
@@ -21,24 +22,24 @@ export default function Home() {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-50 to-blue-50 p-4">
-      <div className="max-w-7xl mx-auto">
+    <div className={styles.container}>
+      <div className={styles.wrapper}>
         {/* 헤더 */}
-        <header className="text-center mb-12 pt-8">
-          <h1 className="text-4xl font-bold text-gray-900 mb-4">
+        <header className={styles.header}>
+          <h1>
             🎯 투자 포트폴리오 관리자
           </h1>
-          <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+          <p>
             수칙을 지키면 수익은 따라옵니다. 포지션 크기와 위험도를 실시간으로 관리하세요.
           </p>
         </header>
 
-        <div className="grid grid-cols-1 xl:grid-cols-4 gap-8">
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
           
           {/* 좌측 사이드바 */}
-          <div className="xl:col-span-1 space-y-6">
+          <div className="lg:col-span-1 space-y-6">
             {/* 자산 입력 카드 */}
-            <div className="bg-white rounded-2xl shadow-sm border border-gray-200 p-6">
+            <div className="bg-white rounded-2xl shadow-sm border border-gray-200 p-4">
               <div className="flex items-center gap-3 mb-4">
                 <Calculator className="w-6 h-6 text-blue-600" />
                 <h2 className="text-xl font-semibold text-gray-900">총 자산 입력</h2>
@@ -72,7 +73,7 @@ export default function Home() {
             </div>
 
             {/* 투자 규칙 요약 */}
-            <div className="bg-white rounded-2xl shadow-sm border border-gray-200 p-6">
+            <div className="bg-white rounded-2xl shadow-sm border border-gray-200 p-4">
               <div className="flex items-center gap-3 mb-4">
                 <AlertTriangle className="w-6 h-6 text-orange-600" />
                 <h2 className="text-xl font-semibold text-gray-900">투자 수칙</h2>
@@ -100,10 +101,10 @@ export default function Home() {
           </div>
 
           {/* 메인 콘텐츠 */}
-          <div className="xl:col-span-3 space-y-6">
+          <div className="lg:col-span-2 space-y-6">
             {/* 포지션 계산기 */}
-            <div className="bg-white rounded-2xl shadow-sm border border-gray-200 p-6">
-              <div className="flex items-center gap-3 mb-6">
+            <div className="bg-white rounded-2xl shadow-sm border border-gray-200 p-4">
+              <div className="flex items-center gap-3 mb-4">
                 <PieChart className="w-6 h-6 text-green-600" />
                 <h2 className="text-xl font-semibold text-gray-900">포지션 계산기</h2>
               </div>
@@ -142,8 +143,8 @@ export default function Home() {
             {/* 위험도 & 포트폴리오 그리드 */}
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
               {/* 위험도 모니터링 */}
-              <div className="bg-white rounded-2xl shadow-sm border border-gray-200 p-6">
-                <div className="flex items-center gap-3 mb-6">
+              <div className="bg-white rounded-2xl shadow-sm border border-gray-200 p-4">
+                <div className="flex items-center gap-3 mb-4">
                   <TrendingUp className="w-6 h-6 text-purple-600" />
                   <h2 className="text-xl font-semibold text-gray-900">위험도 모니터링</h2>
                 </div>
@@ -185,8 +186,8 @@ export default function Home() {
               </div>
 
               {/* 포트폴리오 현황 */}
-              <div className="bg-white rounded-2xl shadow-sm border border-gray-200 p-6">
-                <div className="flex items-center justify-between mb-6">
+              <div className="bg-white rounded-2xl shadow-sm border border-gray-200 p-4">
+                <div className="flex items-center justify-between mb-4">
                   <h2 className="text-xl font-semibold text-gray-900">포트폴리오 현황</h2>
                   <span className="text-sm text-gray-500">0 / {calculations.maxStocks} 종목</span>
                 </div>
